@@ -1,0 +1,56 @@
+{
+	"MALE" : {
+		
+		"39" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 8
+		},
+		
+		"49" : {
+		"NONSMOKER" : 0,
+			"SMOKER" : 5
+		},
+		
+		"59" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 3
+		},
+		
+		"69" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 1
+		},
+		
+		"100" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 1
+		} 
+	},
+	"FEMALE" : {
+			
+		"39" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 9
+		},
+		
+		"49" : {
+		"NONSMOKER" : 0,
+			"SMOKER" : 7
+		},
+		
+		"59" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 4
+		},
+		
+		"69" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 2
+		},
+		
+		"100" : {
+			"NONSMOKER" : 0,
+			"SMOKER" : 1
+		} 
+	}
+}

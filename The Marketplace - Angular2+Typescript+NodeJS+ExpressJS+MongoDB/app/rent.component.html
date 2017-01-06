@@ -1,0 +1,28 @@
+<user-search></user-search>
+
+<div class="content">
+	<div class="container-fluid">
+        <h2 class = "text-center">Items up for Rent</h2>
+		<div class="row" >
+			<div class="col-lg-3 col-lg-offset-1 col-md-6 col-sm-6" *ngFor="#product of products">
+				<div class="card card-stats">
+					<div class="card-header">
+						<img class="img-responsive"
+                        src = "{{product.imgUrl}}"
+                        alt="image1"
+                        style="height: 175px; width:275px;"/>
+					</div>
+					<div class="card-content">
+						<p class="category">{{product.title}}</p>
+						<h3 class="title">$ {{product.amount}}</h3>
+					</div>
+					<div class="card-footer">
+						<div class="stats">
+							<button class="btn btn-primary btn-just-icon">Rent Now</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

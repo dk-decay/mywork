@@ -1,0 +1,463 @@
+body {
+    font-family: font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden
+}
+
+#myCarousel{
+    max-width: 100%;
+    width: 450px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.carousel-control.left {
+    background-image: none;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+p {
+    font-size: 20px
+}
+p.small {
+    font-size: 16px
+}
+#menu_login{
+    font-size: 14px;
+    margin-top: 0;
+    margin-left: 10px;
+    font-weight: 700;
+}
+a,
+a.active,
+a:active,
+a:focus,
+a:hover {
+    color: #000;
+    outline: 0
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand.active,
+.navbar-custom .navbar-brand:active,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-nav li a,
+header {
+    color: #fff
+}
+.img-centered {
+    margin: 0 auto
+}
+header {
+    text-align: center;
+    background: #000;
+}
+header .container {
+    padding-top: 100px;
+    padding-bottom: 50px
+}
+header img {
+    display: block;
+    margin: 0 auto 20px
+}
+header .intro-text .name {
+    display: block;
+    font-weight: 700;
+    font-size: 2em
+}
+header .intro-text .skills {
+    font-size: 1.25em;
+    font-weight: 300
+}
+@media (min-width: 768px) {
+    header .container {
+        padding-top: 100px;
+        padding-bottom: 100px
+    }
+    header .intro-text .name {
+        font-size: 4.75em
+    }
+    header .intro-text .skills {
+        font-size: 1.75em
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-custom {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s
+    }
+    .navbar-custom .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+    .navbar-custom.affix {
+        padding: 10px 0
+    }
+    .navbar-custom.affix .navbar-brand {
+        font-size: 1.5em
+    }
+}
+
+.btn-info{
+        color: #fff;
+    background-color: #b80000;
+    border-color: #b80000;
+}
+
+section {
+    padding: 60px 0
+}
+section h2 {
+    margin: 0;
+    font-size: 3em
+}
+section.success {
+    background: #000;
+    color: #fff
+}
+@media (max-width: 767px) {
+    section {
+        padding: 75px 0
+    }
+    section.first {
+        padding-top: 75px
+    }
+}
+#portfolio .portfolio-item {
+    margin: 0 0 15px;
+    right: 0
+}
+#portfolio .portfolio-item .portfolio-link {
+    display: block;
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto
+}
+#portfolio .portfolio-item .portfolio-link .caption {
+    background: rgba(24, 188, 156, .9);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all ease .5s;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s
+}
+#portfolio .portfolio-item .portfolio-link .caption:hover {
+    opacity: 1
+}
+#portfolio .portfolio-item .portfolio-link .caption .caption-content {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+    top: 50%;
+    margin-top: -12px;
+    color: #fff
+}
+.btn-social,
+.scroll-top,
+.scroll-top .btn {
+    width: 50px;
+    height: 50px
+}
+#portfolio .portfolio-item .portfolio-link .caption .caption-content i {
+    margin-top: -12px
+}
+
+#portfolio * {
+    z-index: 2
+}
+@media (min-width: 767px) {
+    #portfolio .portfolio-item {
+        margin: 0 0 30px
+    }
+}
+footer {
+    color: #fff
+}
+footer h3 {
+    margin-bottom: 30px
+}
+footer .footer-above {
+    padding-top: 50px;
+    background-color: #b80000
+}
+footer .footer-col {
+    margin-bottom: 50px
+}
+footer .footer-below {
+    padding: 25px 0;
+    background-color: #b80000
+}
+
+.carousel-control.left,.carousel-control.right  {background:none;width:25px;}
+.carousel-control.left {left:-25px;}
+.carousel-control.right {right:-25px;}
+.broun-block {
+    background: url("http://myinstantcms.ru/images/bg-broun1.jpg") repeat scroll center top rgba(0, 0, 0, 0);
+    padding-bottom: 34px;
+}
+.block-text {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #2c2222;
+    color: #626262;
+    font-size: 14px;
+    margin-top: 27px;
+    padding: 15px 18px;
+}
+.block-text a {
+ color: #7d4702;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 21px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.mark {
+    padding: 12px 0;background:none;
+}
+.block-text p {
+    color: #585858;
+    font-family: Georgia;
+    font-style: italic;
+    line-height: 20px;
+}
+.sprite {
+	background-color: none;
+}
+.sprite-i-triangle {
+    background-position: 0 -1298px;
+    height: 44px;
+    width: 50px;
+}
+.block-text ins {
+    bottom: -44px;
+    left: 50%;
+    margin-left: -60px;
+}
+
+
+.block {
+    display: block;
+}
+.zmin {
+    z-index: 1;
+}
+.ab {
+    position: absolute;
+}
+
+.person-text {
+    padding: 10px 0 0;
+    text-align: center;
+    z-index: 2;
+}
+.person-text a {
+    color: #ffcc00;
+    display: block;
+    font-size: 14px;
+    margin-top: 3px;
+    text-decoration: underline;
+}
+.person-text i {
+    color: #fff;
+    font-family: Georgia;
+    font-size: 13px;
+}
+.rel {
+    position: relative;
+}
+
+.img-circle{
+    border-radius: 50%;
+}
+
+.carousel-indicators{
+    top:300;
+}
+
+.carousel-indicators li{
+    border: 2px solid #b80000;
+}
+
+.carousel-indicators .active{
+    background-color: #b80000;
+}
+
+.social-icons{
+    font-size: 3em;
+    padding-left: 10%;
+    padding-right: 10%;
+    vertical-align: middle;
+}
+
+.media-middle {
+    vertical-align: middle;
+    padding-left: 20px;
+}
+
+.jumbotron{
+    height: 100vh;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.black{
+    background-color: black;
+}
+
+.big{
+    font-size: 10em;
+}
+
+#row2{
+    text-align: center;
+}
+
+#loginBtn{
+    background-color: #000;
+    color: white;
+    height: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 8px 10px 20px 0px rgba(255,255,255,0.40);
+}
+
+#loginBtn:hover{
+    box-shadow: 2px 4px 8px 0px rgba(255,255,255,0.7);
+}
+
+.modal-header{
+    border: 0;
+    background-color: rgba(184,0,0,1);
+}
+
+.modal-body{
+    padding:0;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #b80000;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: white;
+    background-color: rgba(184,0,0,1);
+    margin-right: 2px;
+    border: 2px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    background-color: #eee;
+    line-height: 1.42857143;
+    border-radius: 4px 4px 0 0;
+}
+
+#signIn{
+    color:white;
+    width:100px;
+    background-color: rgba(184,0,0,1);
+    margin-bottom:15px;
+}
+
+
+.tabs-left, .tabs-right {
+  border-bottom: none;
+  padding-top: 2px;
+}
+.tabs-left>li, .tabs-right>li {
+  float: none;
+  margin-bottom: 2px;
+}
+.tabs-left>li {
+  margin-right: -1px;
+}
+.tabs-right>li {
+  margin-left: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-right-color: transparent;
+box-shadow: 0 8px 6px -6px white;
+}
+
+.tabs-right>li.active>a,
+.tabs-right>li.active>a:hover,
+.tabs-right>li.active>a:focus {
+  border-bottom: 1px solid #ddd;
+  border-left-color: transparent;
+  box-shadow: 0 8px 6px -6px white;
+}
+
+.tabs-right>li.active>a{
+    
+}
+
+.tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+}
+.tabs-right>li>a {
+  border-radius: 0 4px 4px 0;
+  margin-right: 0;
+}
+.vertical-text {
+  margin-top:50px;
+  border: none;
+  position: relative;
+}
+.vertical-text>li {
+  height: 20px;
+  width: 120px;
+  margin-bottom: 100px;
+}
+.vertical-text>li>a {
+  border-bottom: 1px solid #ddd;
+  border-right-color: transparent;
+  text-align: center;
+  border-radius: 4px 4px 0px 0px;
+}
+.vertical-text>li.active>a,
+.vertical-text>li.active>a:hover,
+.vertical-text>li.active>a:focus {
+  border-bottom-color: transparent;
+  border-right-color: #ddd;
+  border-left-color: #ddd;
+    box-shadow: 0 8px 6px -6px white;
+}
+.vertical-text.tabs-left {
+  left: -50px;
+}
+.vertical-text.tabs-right {
+  right: -50px;
+}
+.vertical-text.tabs-right>li {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.vertical-text.tabs-left>li {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}

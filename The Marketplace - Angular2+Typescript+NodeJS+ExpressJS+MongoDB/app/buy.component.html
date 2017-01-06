@@ -1,0 +1,131 @@
+<!-- 
+<user-search></user-search>
+<div class="content">
+    <div class="container-fluid">
+        
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="#product of products">
+                            <div class="card card-stats" id="accordion">
+                                <div class="header header-danger">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper" style="color:white">
+                                        <ul class="nav nav-tabs" data-tabs="tabs" style="border-radius:0">
+                                            <div class="row" style="box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); border-radius: 0">
+                                                <div class="col-lg-12 text-center">
+                                                    <h4 style="margin:0px">{{product.title}}</h4>
+                                                </div>    
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                 </div>
+                                <div class="card-header">
+                                    <img class="img-responsive img-raised" src="{{product.imgUrl}}" alt="image1"/>
+                                </div>
+                                
+                                <div class="col-lg-12 text-center" >
+                                    <div class="card-content" style="padding:0; border-bottom: 1px solid #b80000">
+                                    <p class="category"><b>{{product.title}}</b></p>
+                                    <h3 class="title"><b>$ {{product.amount}}</b></h3>
+                                    
+                                    </div>
+                                        
+                                    <accordion class="img-raised" title="Bid Now" style="padding: 0;">
+                                        <div class="ripple-container"></div>
+                                            <div class="row" id="buy-bottom">
+                                            <div class="col-lg-12 col-md-12 col-sm-10 text-center">
+                                                <p>{{product.desc}}</p>
+                                            </div>    
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <div class="form-group label-floating is-empty" style="margin-top:0px">
+                                                    <span>
+                                                        <div class="input-group"> 
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                                            </span>
+                                                            <div class="form-group is-empty">
+                                                                <input type="text" class="form-control input-md" placeholder="Bid Amount" [(ngModel)]="bidAmt">
+                                                            </div> 
+                                                            <span class="input-group-addon">
+                                                                  <button class="btn btn-success btn" style="font-size:14px; background: #b80000" (click)="onSubmitBidAmt()">Place Bid</button>
+                                                            </span>    
+                                                        </div>
+                                                    </span>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </accordion>
+                                    </div>
+                            </div>
+                        </div>
+    </div>
+</div>
+<footer></footer>
+-->
+
+
+
+<user-search></user-search>
+<div class="content">
+    <div class="container-fluid">
+        
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="#product of products">
+                            <div class="card card-stats" id="accordion">
+                                <div class="header header-danger">
+                                <div class="nav-tabs-navigation">
+                                    <div class="nav-tabs-wrapper" style="color:white">
+                                        <ul class="nav nav-tabs" data-tabs="tabs" style="border-radius:0">
+                                            <div class="row" style="box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); border-radius: 0">
+                                                <div class="col-lg-12 text-center">
+                                                    <h4 style="margin:0px">{{product.title}}</h4>
+                                                </div>    
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                                 </div>
+                                <div class="card-header">
+                                    <img class="img-responsive img-raised" src="{{product.imgUrl}}" alt="image1"/>
+                                </div>
+                                
+                                <div class="col-lg-12 text-center" >
+                                    <div class="card-content" style="padding:0; border-bottom: 1px solid #b80000">
+                                    <p class="category"><b>{{product.title}}</b></p>
+                                    <h3 class="title"><b>$ {{product.amount}}</b></h3>
+                                    
+                                    </div>
+                                        
+                                    <accordion class="img-raised" title="Bid Now" style="padding: 0;">
+                                        <div class="ripple-container"></div>
+                                            <div class="row" id="buy-bottom">
+                                            <div class="col-lg-12 col-md-12 col-sm-10 text-center">
+                                                <p>{{product.desc}}</p>
+                                            </div>    
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <div class="form-group label-floating is-empty" style="margin-top:0px">
+                                                    <span>
+                                                        <div class="input-group"> 
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                                            </span>
+                                                            <div class="form-group is-empty">
+                                                                <input type="text" class="form-control input-md" placeholder="Bid Amount" [(ngModel)]="bidAmt">
+                                                            </div> 
+                                                            <span class="input-group-addon">
+                                                                  <button class="btn btn-success btn" style="font-size:14px; background: #b80000" (click)="submitProductBid(product)">Place Bid</button>
+                                                            </span>    
+                                                        </div>
+                                                    </span>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </accordion>
+                                    </div>
+                            </div>
+                        </div>
+    </div>
+</div>
+<footer></footer>

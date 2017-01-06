@@ -1,0 +1,294 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.biogen.enterprise.admin.drug.view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import org.biogen.business.enterprise.model.DrugManufacturingBusiness;
+import org.biogen.organization.model.ChemicalManufacturer;
+import org.biogen.organization.model.DrugManufactuer;
+import org.biogen.organization.model.DrugManufacturerDirectory;
+import org.biogen.organization.work.model.WorkRequest;
+import org.biogen.user.model.BusinessUser;
+import org.biogen.work.attachment.model.AttachmentType;
+import org.biogen.work.attachment.model.NewCompoundApprovalAttachment;
+import org.biogen.work.attachment.model.NewDrugApprovalAttachment;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+/**
+ *
+ * @author deveshkandpal
+ */
+public class DrugEnterpriseAnalytics extends javax.swing.JPanel {
+
+    /**
+     * Creates new form DrugEnterpriseAnalytics
+     */
+    private DrugManufacturingBusiness enterprise;
+    private JPanel panel;
+    private Map<BusinessUser, List<NewDrugApprovalAttachment>> orgDrugMap;
+
+    public DrugEnterpriseAnalytics(DrugManufacturingBusiness enterprise,
+            JPanel panel) {
+        initComponents();
+        this.panel = panel;
+        this.enterprise = enterprise;
+        populateDrugTable();
+    }
+
+    public void populateDrugTable() {
+        populateNewDrugRequest();
+        DefaultTableModel model = (DefaultTableModel) drugOrgTable.getModel();
+        model.setRowCount(0);
+
+        this.enterprise.getOrganizationList()
+                .stream()
+                .map(m -> (DrugManufactuer) m)
+                .forEach(a -> {
+                    Object[] arr = new Object[1];
+                    arr[0] = a;
+                    model.addRow(arr);
+                });
+
+    }
+
+    public void populateNewDrugRequest() {
+        this.orgDrugMap = new HashMap<>();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        Map<BusinessUser, List<WorkRequest>> dataMap = new HashMap<>();
+
+        for (WorkRequest wr : this.enterprise.getWorkQueue().getWorkRequestList()) {
+
+            if (wr.getAttachment().getAttachmentType() == AttachmentType.NewDrugApprovalAttachment) {
+
+                NewDrugApprovalAttachment attach = (NewDrugApprovalAttachment) wr.getAttachment();
+                if (dataMap.containsKey(wr.getSender())) {
+
+                    List<WorkRequest> values = dataMap.get(wr.getSender());
+                    values.add(wr);
+                    dataMap.put(wr.getSender(), values);
+
+                    List<NewDrugApprovalAttachment> attachList
+                            = orgDrugMap.get(wr.getSender());
+                    attachList.add(attach);
+                    orgDrugMap.put(wr.getSender(), attachList);
+
+                } else {
+                    List<WorkRequest> values = new ArrayList<>();
+                    values.add(wr);
+                    dataMap.put(wr.getSender(), values);
+
+                    List<NewDrugApprovalAttachment> attachList = new ArrayList<>();
+                    attachList.add(attach);
+                    orgDrugMap.put(wr.getSender(), attachList);
+
+                }
+            }
+
+        }
+
+        dataMap.forEach((k, v) -> {
+            String orgName = this.enterprise.getOrganizationList()
+                    .stream().filter(o -> o.getOrgId()
+                    == k.getOrganizationId())
+                    .findFirst().get().getName();
+
+            dataset.setValue(v.size(), "Total Drugs", orgName);
+
+        });
+
+        JFreeChart chart = ChartFactory
+                .createBarChart("Drug Applications",
+                        "Organization Name",
+                        "Total Drugs", dataset,
+                        PlotOrientation.VERTICAL,
+                        false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.BLACK);
+        ChartPanel f = new ChartPanel(chart);
+        newDrugRequestPanel.setLayout(new java.awt.BorderLayout());
+        newDrugRequestPanel.removeAll();
+        newDrugRequestPanel.add(f, BorderLayout.CENTER);
+        newDrugRequestPanel.validate();
+        newDrugRequestPanel.repaint();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        drugOrgTable = new javax.swing.JTable();
+        drugStockPanel = new javax.swing.JPanel();
+        newDrugRequestPanel = new javax.swing.JPanel();
+        backBtn = new javax.swing.JButton();
+
+        drugOrgTable.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
+        drugOrgTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Drug Organization Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        drugOrgTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                drugOrgTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(drugOrgTable);
+
+        drugStockPanel.setBackground(new java.awt.Color(255, 255, 255));
+        drugStockPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout drugStockPanelLayout = new javax.swing.GroupLayout(drugStockPanel);
+        drugStockPanel.setLayout(drugStockPanelLayout);
+        drugStockPanelLayout.setHorizontalGroup(
+            drugStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 235, Short.MAX_VALUE)
+        );
+        drugStockPanelLayout.setVerticalGroup(
+            drugStockPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 181, Short.MAX_VALUE)
+        );
+
+        newDrugRequestPanel.setBackground(new java.awt.Color(255, 255, 255));
+        newDrugRequestPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout newDrugRequestPanelLayout = new javax.swing.GroupLayout(newDrugRequestPanel);
+        newDrugRequestPanel.setLayout(newDrugRequestPanelLayout);
+        newDrugRequestPanelLayout.setHorizontalGroup(
+            newDrugRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 343, Short.MAX_VALUE)
+        );
+        newDrugRequestPanelLayout.setVerticalGroup(
+            newDrugRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 191, Short.MAX_VALUE)
+        );
+
+        backBtn.setText("back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newDrugRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(drugStockPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(drugStockPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(newDrugRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(backBtn)
+                        .addGap(48, 48, 48))))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void drugOrgTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_drugOrgTableMouseClicked
+        // TODO add your handling code here:
+
+        int selectedRow = drugOrgTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            DrugManufactuer org = (DrugManufactuer) drugOrgTable.getValueAt(selectedRow, 0);
+            visualize(org);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Select a compound request to be deleted");
+        }
+
+    }//GEN-LAST:event_drugOrgTableMouseClicked
+
+    public void visualize(DrugManufactuer org) {
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        org.getDrugSynthesisOrderList()
+                .stream()
+                .forEach(a -> {
+                    dataset.setValue(a.getQuantity(), "Total Stock", a.getDrug().toString());
+
+                });
+
+        JFreeChart chart = ChartFactory
+                .createBarChart("Total Stock",
+                        "Drug Name",
+                        "Total Stock", dataset,
+                        PlotOrientation.VERTICAL,
+                        false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.BLACK);
+        ChartPanel f = new ChartPanel(chart);
+        drugStockPanel.setLayout(new java.awt.BorderLayout());
+        drugStockPanel.removeAll();
+        drugStockPanel.add(f, BorderLayout.CENTER);
+        drugStockPanel.validate();
+        drugStockPanel.repaint();
+
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTable drugOrgTable;
+    private javax.swing.JPanel drugStockPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel newDrugRequestPanel;
+    // End of variables declaration//GEN-END:variables
+}
