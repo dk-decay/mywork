@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+</h1>
+<hr>
+<a [routerLink]="['']" [queryParams]="{'analytics' : 500}" [fragment]="'section1'">Home</a>
+<input type="text" #id (input)="0"> |
+<a [routerLink]="['user', id.value]">User</a>
+<hr>
+<router-outlet></router-outlet>
