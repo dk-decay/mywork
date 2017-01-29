@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <h1>Hello World!</h1>
+      <!--  <h1>Adding slash as a prefix to url part would make it
+        abolute routing, ie, URL starts after domain name
+        otherwise it is treated as relative from current
+      </h1> -->
+      <hr>
+      <input type="text" #id (input)="0">
+      <hr>
+      <!--[routerLinkActiveOptions] this lets
+      you have an exact match for the URL
+      -->
+      <a [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Home</a>
+      <a [routerLink]="['user',id.value]" routerLinkActive="active">Second User</a>
+      <a [routerLink]="['user', id.value]" [queryParams]="{'analytics':'500'}" [fragment]="'section1'" routerLinkActive="active">User</a>
+      <hr>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

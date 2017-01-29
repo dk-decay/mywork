@@ -12,4 +12,16 @@ export class ShoppingListService {
     Array.prototype.push.apply(this.ingrediants, items);
   }
 
+  addIngrediant(item: Ingrediant) {
+    this.ingrediants.push(item)
+  }
+
+  editIngrediant(oldItem: Ingrediant, newItem: Ingrediant) {
+    this.ingrediants[this.ingrediants.indexOf(oldItem)] = newItem;
+  }
+
+  deleteIngrediant(item: Ingrediant) {
+    this.ingrediants.splice(this.ingrediants.indexOf(item), 1);
+  }
+
 }

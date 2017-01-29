@@ -1,7 +1,7 @@
 /*
 @author - Devesh Kandpal
 Project - This program loads a sample dataset from Kagal
-which comprises of passenger information from the titanic
+which comprises of passenger information from titanic
 and using categorical data apart from numerical data,
 we are able to predict if the passenger survived or not.
 Logistic Regression is used as the ML algorithm
