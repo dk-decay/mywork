@@ -1,0 +1,56 @@
+{
+	"MALE" : {
+		
+		"39" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 8
+		},
+		
+		"49" : {
+		"ACTIVE" : 0,
+			"SEDENTARY" : 5
+		},
+		
+		"59" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 3
+		},
+		
+		"69" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 1
+		},
+		
+		"100" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 1
+		} 
+	},
+	"FEMALE" : {
+			
+		"39" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 9
+		},
+		
+		"49" : {
+		"ACTIVE" : 0,
+			"SEDENTARY" : 7
+		},
+		
+		"59" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 4
+		},
+		
+		"69" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 2
+		},
+		
+		"100" : {
+			"ACTIVE" : 0,
+			"SEDENTARY" : 1
+		} 
+	}
+}

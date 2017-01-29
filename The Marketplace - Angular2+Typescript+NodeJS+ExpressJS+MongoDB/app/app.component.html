@@ -1,0 +1,84 @@
+<static-home *ngIf="!loggedIn" [loggedIn]="loggedIn" (status)="onStatus($event)"></static-home>
+
+<div [class.wrapper]="loggedIn">
+	<user-home  *ngIf="loggedIn" [username]="username"></user-home>
+	<div [class.main-panel]="loggedIn">
+		
+		<router-outlet (change)="onBidNowModal($event)"></router-outlet>
+		
+	</div>
+	
+</div>
+
+
+<!--Bid Modal-->
+<div class="modal fade" id="bidModal" *ngIf="bidNow" 
+	tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true"  >
+<div class="modal-dialog modal-md" style="margin-top:0px;">
+	<div class="modal-content modal-md">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="shard shard-nav-tabs">
+				<div class="header header-danger">
+					<div class="nav-tabs-navigation">
+						<div class="nav-tabs-wrapper">
+							<ul class="nav nav-tabs" data-tabs="tabs">
+								<div class="row">
+									<div class="col-lg-12 text-center">
+										<h3 style="margin:0px">iPhone 7</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6 pull-left"> <i class="fa fa-user" aria-hidden="true"></i> Pranay Mankad </div>
+									<div class="col-lg-6" style="text-align:right"> Current Bid - <i class="fa fa-usd" aria-hidden="true"></i> 250 </div>
+								</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="content" id="buy-content">
+						<div class="tab-content text-center">
+							<div class="tab-pane active">
+								<div class="col-lg-12"> <img id="preview" src="http://lorempixel.com/448/280/?1" class="img-responsive img-raised" />
+									<div class="col-lg-12">
+										<div class="row" style="margin-top:15px; padding-bottom: 10px; border-bottom: 2px #b80000 solid"> <img onclick="getElementById('preview').src=getElementById('img1').src" height=50 width=50 id="img1" src="http://lorempixel.com/448/280/?1"
+												alt="" /> <img onclick="getElementById('preview').src=getElementById('img2').src" height=50 width=50 id="img2"
+												src="http://lorempixel.com/448/280/?2" alt="" /> <img onclick="getElementById('preview').src=getElementById('img3').src"
+												height=50 width=50 id="img3" src="http://lorempixel.com/448/280/?3" alt="" /> <img onclick="getElementById('preview').src=getElementById('img4').src"
+												height=50 width=50 id="img4" src="http://lorempixel.com/448/280/?4" alt="" /> <img onclick="getElementById('preview').src=getElementById('img5').src"
+												height=50 width=50 id="img5" src="http://lorempixel.com/448/280/?5" alt="" /> </div>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="row" id="buy-bottom">
+										<div class="col-lg-12 col-md-12 col-sm-10 text-center">
+											<p>iPhone 7 dramatically improves the most important aspects of the iPhone experience. It introduces advanced new
+												camera systems</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-1 col-lg-offset-3 col-lg-6 text-center">
+											<div class="form-group label-floating is-empty" style="margin-top:0px"> <span>
+                                                        <div class="input-group"> 
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-usd" aria-hidden="true"></i>
+                                                            </span>
+												<div class="form-group is-empty">
+													<input type="text" class="form-control input-md" placeholder="Bid Amount"> </div> <span class="input-group-addon">
+                                                                  <button class="btn btn-success btn-sm">Place Bid</button>
+                                                            </span> </div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

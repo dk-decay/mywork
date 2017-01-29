@@ -1,0 +1,20 @@
+{
+	"MALE" : {
+		"ASIAN" : 3,
+		"LATINO" : 2,
+		"HISPANIC" : 2,
+		"AFRICAN_AMERICAN" : 3,
+		"NATIVE_AMERICAN" : 4,
+		"WHITE" : 3
+
+	},
+	"FEMALE" : {
+
+		"ASIAN" : 2,
+		"LATINO" : 1,
+		"HISPANIC" : 1,
+		"AFRICAN_AMERICAN" : 2,
+		"NATIVE_AMERICAN" : 3,
+		"WHITE" : 2
+	}
+}

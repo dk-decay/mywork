@@ -1,0 +1,56 @@
+{
+	"MALE" : {
+		
+		"39" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 8
+		},
+		
+		"49" : {
+		"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 5
+		},
+		
+		"59" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 3
+		},
+		
+		"69" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 1
+		},
+		
+		"100" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 1
+		} 
+	},
+	"FEMALE" : {
+			
+		"39" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 9
+		},
+		
+		"49" : {
+		"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 7
+		},
+		
+		"59" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 4
+		},
+		
+		"69" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 2
+		},
+		
+		"100" : {
+			"NONALCOHOLIC" : 0,
+			"ALCOHOLIC" : 1
+		} 
+	}
+}

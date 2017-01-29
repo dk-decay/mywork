@@ -1,0 +1,5 @@
+{
+	"DRUG": ["Acadia Pharmaceuticals", "Accord Healthcare Inc", "Baxter International Inc.", "Neos Therapeutics, Inc.", "Napo Pharmaceuticals, Inc", "Marathon Pharmaceuticals", "Leading Pharma", "Laser Pharmaceuticals", "Acella Pharmaceuticals", "Accredo Health Group"],
+	"MEDICARE": ["Mayo Clinic", "General Hospital", "Hopkins Hospital", "Beth Medical Center", "Wayne Memorial Hospital", "Langone Medical center", "Brigham and Women's Hospital", "Cedars-sinai Medical center", "Hefner Public Hospital", "UPMC Shadyside Hospital"],
+	"CHEMICAL": ["Toray Industries", "Reliance Industries", "The Linde Group", "PPG Industries", "Bayer", "DuPont", "ExxonMobil", "Sinopec", "Dow Chemical", "BASF"]
+}

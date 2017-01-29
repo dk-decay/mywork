@@ -1,0 +1,96 @@
+<user-search></user-search>
+<div class="content">
+	<div class="container-fluid">
+		<div id="dashboard-id" class="card card-profile">
+			<div class="col-lg-12 col-md-12" id="dashboard-card">
+				<div class="card-avatar">
+					<a href="#"> <img class="img" src="/app/home/img/img_pranay.png" /> </a>
+				</div>
+				<div class="content text-center">
+					<h6 class="category text-gray">Proud Husky, Crazy Person</h6>
+					<!--user description-->
+					<h4 class="card-title">Hello</h4>
+					<!--user name-->
+					<div class="col-lg-3 col-md-4 col-sm-3">
+						<div class="card card-stats">
+							<div class="card-header" data-background-color="red">
+								<h5 class="title">Items Purchased</h5>
+							</div>
+							<div class="card-content">
+								<h4>75</h4>
+								<!--items bought bby user-->
+							</div>
+							<div class="card-footer" style="padding:10px">
+								<div class="stats"> <i class="material-icons">thumb_up</i> Congratulations! </div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-md-8 col-sm-6">
+						<div class="card card-stats">
+							<div class="card-header" data-background-color="green">
+								<h4 class="title">Manage Bids</h4>
+							</div>
+							<div class="card-content">
+								<table class="table">
+									<thead>
+										<tr>
+											<th class="text-center"><b>#</b></th>
+											<th><b>Product</b></th>
+											<th><b>Expected Amount</b></th>
+											<th class="text-right"><b>Highest Bid</b></th>
+											<th class="text-center"><b>Accept</b></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="#u of obj">
+											<td class="text-center">1</td>
+											<td class="text-left">{{u.title}}</td>
+											<!-- product title -->
+											<td class="text-left">&#36;{{u.amount}}</td>
+											<!-- product name -->
+										
+										<td class="text-center">
+                                                           &#36;{{u.highestAmount}}
+                                                    <a href="#">
+                            <i class="material-icons" style="color: #b80000 ; font-size: 15px" (click)="refreshBid(u)">refresh</i>
+                                                               </a>
+                                                       
+											</td>
+											<!-- highest bid -->
+											<td class="text-center">
+											
+													<button class="btn btn-success btn-sm btn-round">
+                                                            <i class="material-icons">done_all</i>
+                                                            <div class="ripple-container"></div></button>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+							<div class="card-footer">
+								<div class="stats" style="padding:10px"> <a href="#"><i class="material-icons">question_answer</i> These are your new messages</a> </div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-sm-3">
+						<div class="card card-stats">
+							<div class="card-header" data-background-color="red">
+								<h5 class="title">Items Sold</h5>
+							</div>
+							<div class="card-content">
+								<h4>15</h4>
+							</div>
+							<div class="card-footer">
+								<div class="stats" style="padding:10px"> <i class="material-icons">trending_up</i> You're doing a good job! </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer></footer>
